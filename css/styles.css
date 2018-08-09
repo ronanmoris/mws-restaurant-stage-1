@@ -2,6 +2,7 @@
 /* CSS Document */
 
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -44,7 +45,6 @@ h4,
 h5,
 h6 {
   font-family: Arial, Helvetica, sans-serif;
-  margin: 0 0 20px;
 }
 article,
 aside,
@@ -61,8 +61,10 @@ section {
   display: block;
 }
 #maincontent {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, auto);
   background-color: #f3f3f3;
-  min-height: 100%;
 }
 #footer {
   background-color: #444;
@@ -231,23 +233,18 @@ nav h1 a {
   z-index: 1000;
 }
 .inside #map-container {
+  width: 90%;
+  justify-self: center;
+  border: 2px solid yellow;
   background: blue none repeat scroll 0 0;
-  height: 87%;
-  position: fixed;
-  right: 0;
-  top: 80px;
-  width: 50%;
+  position: relative;
+  top: 140px;
 }
+
 .inside #map {
   background-color: #ccc;
-  height: 100%;
-  width: 100%;
 }
-.inside #footer {
-  bottom: 0;
-  position: absolute;
-  width: 50%;
-}
+
 #restaurant-name {
   color: #f18200;
   font-family: Arial, sans-serif;
@@ -257,11 +254,13 @@ nav h1 a {
   margin: 15px 0 30px;
   text-transform: uppercase;
   line-height: 1.1;
+  text-align: center;
 }
 #restaurant-img {
-  width: 90%;
+  width: 100%;
 }
 #restaurant-address {
+  text-align: center;
   font-size: 12pt;
   margin: 10px 0px;
 }
@@ -275,25 +274,29 @@ nav h1 a {
   padding: 2px 0;
   text-align: center;
   text-transform: uppercase;
-  width: 90%;
+  width: 100%;
 }
-#restaurant-container,
-#reviews-container {
+#restaurant-container {
+  width: 90%;
+  justify-self: center;
   border-bottom: 1px solid #d9d9d9;
   border-top: 1px solid #fff;
-  padding: 140px 40px 30px;
-  width: 50%;
+  padding-top: 140px;
 }
+
 #reviews-container {
-  padding: 30px 40px 80px;
+  width: 90%;
+  justify-self: center;
 }
+
 #reviews-container h2 {
   color: #f58500;
   font-size: 24pt;
   font-weight: 300;
   letter-spacing: -1px;
-  padding-bottom: 1pt;
+  padding: 5px 5px 10px;
 }
+
 #reviews-list {
   margin: 0;
   padding: 0;
@@ -314,6 +317,10 @@ nav h1 a {
   margin: 0 0 10px;
 }
 
+#restaurant-hours {
+  margin: 20px;
+}
+
 #restaurant-hours td {
   color: #666;
 }
@@ -324,3 +331,17 @@ nav h1 a {
     font-size: 0.9em;
   }
 }
+@media only screen and (min-width: 1000px) {
+  body {
+    width: 80%;
+    margin: auto;
+  }
+  .inside header {
+    position: fixed;
+    top: 0;
+    width: 80%;
+    z-index: 1000;
+  }
+}
+/* .home-header nav, */
+/* #breadcrumb, */
