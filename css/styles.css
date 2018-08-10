@@ -11,13 +11,12 @@ td,
 th,
 p {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 10pt;
+  /* font-size: 10pt; */
   color: #333;
   line-height: 1.5;
 }
 body {
   background-color: #fdfdfd;
-  margin: 0;
   position: relative;
 }
 ul,
@@ -148,6 +147,12 @@ nav h1 a {
   width: 100%;
   background-color: #ccc;
 }
+.leaflet-top.leaflet-left {
+  z-index: 1;
+}
+.leaflet-bottom.leaflet-right {
+  z-index: 1;
+}
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
   width: 100%;
@@ -260,7 +265,7 @@ nav h1 a {
   width: 100%;
 }
 #restaurant-address {
-  text-align: center;
+  justify-self: center;
   font-size: 12pt;
   margin: 10px 0px;
 }
@@ -277,6 +282,7 @@ nav h1 a {
   width: 100%;
 }
 #restaurant-container {
+  display: grid;
   width: 90%;
   justify-self: center;
   border-bottom: 1px solid #d9d9d9;
@@ -290,6 +296,7 @@ nav h1 a {
 }
 
 #reviews-container h2 {
+  text-align: center;
   color: #f58500;
   font-size: 24pt;
   font-weight: 300;
@@ -298,37 +305,72 @@ nav h1 a {
 }
 
 #reviews-list {
-  margin: 0;
-  padding: 0;
-}
-#reviews-list li {
-  background-color: #fff;
-  border: 2px solid #f3f3f3;
-  display: block;
-  list-style-type: none;
-  margin: 0 0 30px;
-  overflow: hidden;
-  padding: 0 20px 20px;
-  position: relative;
-  width: 85%;
+  display: grid;
 }
 
-#reviews-list li p {
-  margin: 0 0 10px;
+#reviews-list li {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 40px 40px auto;
+  justify-self: center;
+  background-color: #fff;
+  border: 2px solid #f3f3f3;
+  list-style-type: none;
+  margin-bottom: 30px;
+  overflow: hidden;
+  width: 90%;
+  border-top-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+/* ============== Reviews details ================= */
+.name {
+  background-color: #333;
+  color: #fff;
+  padding-left: 20px;
+  font-size: 1.3em;
+}
+
+.date {
+  background-color: #333;
+  color: #ddd;
+  padding-top: 4px;
+}
+.rating {
+  font-size: 15px;
+  justify-self: start;
+  grid-row: 2;
+  background: #f18200;
+  border-radius: 10%;
+  padding: 4px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.comments {
+  grid-column: 1 / 3;
+  grid-row: 3;
+  padding: 12px;
+  font-size: 1rem;
 }
 
 #restaurant-hours {
-  margin: 20px;
+  justify-self: center;
+  margin: 8px 4px;
 }
 
 #restaurant-hours td {
   color: #666;
+  padding: 4px;
 }
 
 /* Adding Responsiveness... */
 @media only screen and (max-width: 550px) {
   .main-title {
     font-size: 0.9em;
+  }
+  #restaurant-hours {
+    font-size: 12px;
   }
 }
 @media only screen and (min-width: 1000px) {
@@ -343,5 +385,3 @@ nav h1 a {
     z-index: 1000;
   }
 }
-/* .home-header nav, */
-/* #breadcrumb, */
