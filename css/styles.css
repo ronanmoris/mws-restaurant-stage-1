@@ -11,7 +11,7 @@ td,
 th,
 p {
   font-family: Arial, Helvetica, sans-serif;
-  /* font-size: 10pt; */
+
   color: #333;
   line-height: 1.5;
 }
@@ -147,12 +147,7 @@ nav h1 a {
   width: 100%;
   background-color: #ccc;
 }
-.leaflet-top.leaflet-left {
-  z-index: 1;
-}
-.leaflet-bottom.leaflet-right {
-  z-index: 1;
-}
+
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
   width: 100%;
