@@ -230,7 +230,7 @@ nav h1 a {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 10000;
 }
 .inside #map-container {
   width: 90%;
@@ -377,6 +377,6 @@ nav h1 a {
     position: fixed;
     top: 0;
     width: 80%;
-    z-index: 1000;
+    z-index: 10000;
   }
 }
