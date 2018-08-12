@@ -6,6 +6,7 @@ var newMap;
  */
 document.addEventListener("DOMContentLoaded", event => {
   initMap();
+  // setMapsTabindex();
 });
 
 /**
@@ -22,6 +23,8 @@ initMap = () => {
         zoom: 16,
         scrollWheelZoom: false
       });
+      //take map out of taborder
+      newMap._container.tabIndex = "-1";
       L.tileLayer(
         "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}",
         {
@@ -97,6 +100,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   const image = document.getElementById("restaurant-img");
   image.className = "restaurant-img";
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.alt = `${restaurant.name} Restaurant Photograph`;
 
   const cuisine = document.getElementById("restaurant-cuisine");
   cuisine.innerHTML = restaurant.cuisine_type;
@@ -181,7 +185,9 @@ createReviewHTML = review => {
   return li;
 };
 
-// Eventually use function instead of long css selectors
+/**
+ * Add classes to user reviews
+ */
 function addClass(element, cla) {
   return element.classList.toggle(cla);
 }
