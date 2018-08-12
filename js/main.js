@@ -9,7 +9,16 @@ document.addEventListener("DOMContentLoaded", event => {
   initMap(); // added
   fetchNeighborhoods();
   fetchCuisines();
+  setMapsTabindex();
 });
+
+/**
+ * Move map out of the taborder
+ */
+setMapsTabindex = () => {
+  const map = document.getElementById("map");
+  map.tabIndex = "-1";
+};
 
 /**
  * Fetch all neighborhoods and set their HTML.
@@ -77,6 +86,7 @@ initMap = () => {
     zoom: 12,
     scrollWheelZoom: false
   });
+
   L.tileLayer(
     "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}",
     {
@@ -171,6 +181,7 @@ createRestaurantHTML = restaurant => {
   const image = document.createElement("img");
   image.className = "restaurant-img";
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.alt = `${restaurant.name} Restaurant Photograph`;
   li.append(image);
 
   const name = document.createElement("h1");
