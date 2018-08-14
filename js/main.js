@@ -197,7 +197,9 @@ createRestaurantHTML = restaurant => {
   li.append(address);
 
   const more = document.createElement("a");
+  more.title = restaurant.name;
   more.innerHTML = "View Details";
+
   more.href = DBHelper.urlForRestaurant(restaurant);
   li.append(more);
 
@@ -218,6 +220,17 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     self.markers.push(marker);
   });
 };
+
+/**
+ * Register service worker
+ */
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .register("/sw.js")
+    .then(() => console.log("Registration worked!"))
+    .catch(() => console.log("Registration failed!"));
+}
+
 /* addMarkersToMap = (restaurants = self.restaurants) => {
   restaurants.forEach(restaurant => {
     // Add marker to the map
