@@ -23,7 +23,7 @@ this.addEventListener("install", event => {
   event.waitUntil(
     // Cache the urls from urlsToCache
     caches
-      .open("restaurantReviews-static-v1")
+      .open("reviews-static-v1")
       .then(cache => cache.addAll(urlsToCache))
       .catch(err => {
         console.log(err);
@@ -33,11 +33,10 @@ this.addEventListener("install", event => {
 
 //Fetch client requests
 this.addEventListener("fetch", event => {
-  event
-    .respondWith(caches.match(event.request))
-    .then(response => {
+  event.respondWith(
+    caches.match(event.request).then(response => {
       if (response) return response;
       return fetch(event.request);
     })
-    .catch(err => console.log(err));
+  );
 });
