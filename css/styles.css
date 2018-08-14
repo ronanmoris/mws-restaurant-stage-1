@@ -15,25 +15,29 @@ p {
   color: #333;
   line-height: 1.5;
 }
+
 body {
   background-color: #fdfdfd;
   position: relative;
 }
+
 ul,
 li {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 10pt;
   color: #333;
 }
+
 a {
-  /* color: orange; */
   text-decoration: none;
 }
+
 a:hover,
 a:focus {
   color: #3397db;
   text-decoration: none;
 }
+
 a img {
   border: none 0px #fff;
 }
@@ -46,6 +50,7 @@ h5,
 h6 {
   font-family: Arial, Helvetica, sans-serif;
 }
+
 article,
 aside,
 canvas,
@@ -60,12 +65,14 @@ nav,
 section {
   display: block;
 }
+
 #maincontent {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(3, auto);
   background-color: #f3f3f3;
 }
+
 #footer {
   background-color: #444;
   color: #c5c5c5;
@@ -84,6 +91,7 @@ section {
 #footer a strong:hover {
   color: #3397db;
 }
+
 /* ====================== Navigation ====================== */
 .home-header {
   display: grid;
@@ -151,6 +159,7 @@ nav h1 a {
   color: #01447e;
   text-decoration: underline;
 }
+
 /* ====================== Map ====================== */
 #map {
   height: 400px;
@@ -161,6 +170,7 @@ nav h1 a {
 .leaflet-top.leaflet-left {
   top: 300px;
 }
+
 .leaflet-container a {
   background: white;
   color: #0680b0;
@@ -172,6 +182,7 @@ nav h1 a {
   background-color: #034f82;
   text-align: center;
 }
+
 .filter-options h2 {
   color: white;
   font-size: 1.3rem;
@@ -180,6 +191,7 @@ nav h1 a {
   padding-top: 5px;
   letter-spacing: 2px;
 }
+
 .filter-options select {
   background-color: white;
   border: 1px solid #fff;
@@ -224,6 +236,7 @@ nav h1 a {
   min-height: 248px;
   min-width: 100%;
 }
+
 #restaurants-list li h1 {
   color: #925104;
   font-family: Arial, sans-serif;
@@ -234,10 +247,12 @@ nav h1 a {
   margin: 20px 0 10px;
   text-transform: uppercase;
 }
+
 #restaurants-list p {
   margin: 0;
   font-size: 11pt;
 }
+
 #restaurants-list li a {
   background-color: #925104;
   border-bottom: 3px solid #eee;
@@ -258,6 +273,7 @@ nav h1 a {
   width: 100%;
   z-index: 10000;
 }
+
 .inside #map-container {
   width: 90%;
   justify-self: center;
@@ -282,14 +298,17 @@ nav h1 a {
   line-height: 1.1;
   text-align: center;
 }
+
 #restaurant-img {
   width: 100%;
 }
+
 #restaurant-address {
   justify-self: center;
   font-size: 12pt;
   margin: 10px 0px;
 }
+
 #restaurant-cuisine {
   background-color: #333;
   color: #ddd;
@@ -302,6 +321,7 @@ nav h1 a {
   text-transform: uppercase;
   width: 100%;
 }
+
 #restaurant-container {
   display: grid;
   width: 90%;
@@ -357,6 +377,7 @@ nav h1 a {
   color: #ddd;
   padding-top: 4px;
 }
+
 .rating {
   font-size: 15px;
   justify-self: start;
@@ -385,7 +406,7 @@ nav h1 a {
   padding: 4px;
 }
 
-/* Adding Responsiveness... */
+/* Add media queries for other screen sizes */
 @media only screen and (max-width: 550px) {
   .main-title {
     font-size: 0.9em;
@@ -394,6 +415,7 @@ nav h1 a {
     font-size: 12px;
   }
 }
+
 @media only screen and (min-width: 1000px) {
   body {
     width: 80%;
