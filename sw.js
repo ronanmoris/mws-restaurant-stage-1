@@ -1,5 +1,3 @@
-console.log("hello");
-
 //Open cache
 this.addEventListener("install", event => {
   var urlsToCache = [
