@@ -420,13 +420,13 @@ nav h1 a {
 
 @media only screen and (min-width: 1000px) {
   body {
-    width: 90%;
+    width: 80%;
     margin: auto;
   }
   .inside header {
     position: fixed;
     top: 0;
-    width: 90%;
+    width: 80%;
     z-index: 10000;
   }
 }
