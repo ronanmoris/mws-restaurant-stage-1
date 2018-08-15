@@ -9,15 +9,13 @@ document.addEventListener("DOMContentLoaded", event => {
   initMap(); // added
   fetchNeighborhoods();
   fetchCuisines();
-  setMapsTabindex();
 });
 
 /**
- * Move map out of the taborder
+ * Remove element from the tab order
  */
-setMapsTabindex = () => {
-  const map = document.getElementById("map");
-  map.tabIndex = "-1";
+setTabindex = element => {
+  element.tabIndex = "-1";
 };
 
 /**
@@ -87,6 +85,9 @@ initMap = () => {
     scrollWheelZoom: false
   });
 
+  const map = document.getElementById("map");
+  setTabindex(map);
+
   L.tileLayer(
     "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}",
     {
@@ -94,9 +95,9 @@ initMap = () => {
         "pk.eyJ1Ijoicm9uYW5tb3JpcyIsImEiOiJjamttaDRtNzUwbTNzM3dxcnQ4Z2Y1ZnAyIn0.HXfIJGcmpalFqqzQrfv8bA",
       maxZoom: 18,
       attribution:
-        'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-        '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        'Map data &copy; <a tabindex = "-1" href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+        '<a tabindex="-1" href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+        'Imagery © <a tabindex="-1" href="https://www.mapbox.com/">Mapbox</a>',
       id: "mapbox.streets"
     }
   ).addTo(newMap);
@@ -213,6 +214,10 @@ addMarkersToMap = (restaurants = self.restaurants) => {
   restaurants.forEach(restaurant => {
     // Add marker to the map
     const marker = DBHelper.mapMarkerForRestaurant(restaurant, self.newMap);
+
+    //set tabindex to -1
+    setTabindex(marker._icon);
+
     marker.on("click", onClick);
     function onClick() {
       window.location.href = marker.options.url;
