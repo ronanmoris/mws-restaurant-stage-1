@@ -239,7 +239,7 @@ nav h1 a {
   min-width: 100%;
 }
 
-#restaurants-list li h1 {
+#restaurants-list li h2 {
   color: #925104;
   font-family: Arial, sans-serif;
   font-size: 14pt;
@@ -338,7 +338,7 @@ nav h1 a {
   justify-self: center;
 }
 
-#reviews-container h2 {
+#reviews-container h3 {
   text-align: center;
   color: #bb7104;
   font-size: 24pt;
