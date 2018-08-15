@@ -6,8 +6,23 @@ var newMap;
  */
 document.addEventListener("DOMContentLoaded", event => {
   initMap();
-  // setMapsTabindex();
 });
+
+/**
+ * Add classes to user reviews
+ */
+function addClass(element, cla) {
+  return element.classList.toggle(cla);
+}
+
+/**
+ * Remove element from the tab order
+ */
+setTabindex = elementsArr => {
+  elementsArr.forEach(element => {
+    element.tabIndex = "-1";
+  });
+};
 
 /**
  * Initialize leaflet map
@@ -23,8 +38,15 @@ initMap = () => {
         zoom: 16,
         scrollWheelZoom: false
       });
-      //take map out of taborder
-      newMap._container.tabIndex = "-1";
+      //take map out of the tab order
+      const map = document.getElementById("map");
+      const zoomControlIn = document.querySelector("a.leaflet-control-zoom-in");
+      const zoomControlOut = document.querySelector(
+        "a.leaflet-control-zoom-out"
+      );
+      const elements = [map, zoomControlIn, zoomControlOut];
+      setTabindex(elements);
+
       L.tileLayer(
         "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}",
         {
@@ -32,9 +54,9 @@ initMap = () => {
             "pk.eyJ1Ijoicm9uYW5tb3JpcyIsImEiOiJjamttaDRtNzUwbTNzM3dxcnQ4Z2Y1ZnAyIn0.HXfIJGcmpalFqqzQrfv8bA",
           maxZoom: 18,
           attribution:
-            'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            'Map data &copy; <a tabindex = "-1" href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+            '<a tabindex = "-1" href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+            'Imagery © <a tabindex = "-1" href="https://www.mapbox.com/">Mapbox</a>',
           id: "mapbox.streets"
         }
       ).addTo(newMap);
@@ -140,7 +162,7 @@ fillRestaurantHoursHTML = (
  */
 fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById("reviews-container");
-  const title = document.createElement("h2");
+  const title = document.createElement("h3");
   title.innerHTML = "Reviews";
   container.appendChild(title);
 
@@ -186,18 +208,13 @@ createReviewHTML = review => {
 };
 
 /**
- * Add classes to user reviews
- */
-function addClass(element, cla) {
-  return element.classList.toggle(cla);
-}
-
-/**
  * Add restaurant name to the breadcrumb navigation menu
  */
 fillBreadcrumb = (restaurant = self.restaurant) => {
   const breadcrumb = document.getElementById("breadcrumb");
   const li = document.createElement("li");
+
+  li.setAttribute("aria-current", "page");
   li.innerHTML = restaurant.name;
   breadcrumb.appendChild(li);
 };
