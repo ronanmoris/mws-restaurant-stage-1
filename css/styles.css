@@ -213,6 +213,7 @@ nav h1 a {
 /* ====================== Restaurant Listing ====================== */
 #restaurants-list {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   justify-content: center;
   background-color: #f3f3f3;
   list-style: outside none none;
@@ -232,6 +233,7 @@ nav h1 a {
   background-color: #ccc;
   display: block;
   margin: 0;
+  padding: 0;
   max-width: 100%;
   min-height: 248px;
   min-width: 100%;
@@ -418,13 +420,13 @@ nav h1 a {
 
 @media only screen and (min-width: 1000px) {
   body {
-    width: 80%;
+    width: 90%;
     margin: auto;
   }
   .inside header {
     position: fixed;
     top: 0;
-    width: 80%;
+    width: 90%;
     z-index: 10000;
   }
 }
