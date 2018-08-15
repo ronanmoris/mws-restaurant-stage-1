@@ -1,5 +1,5 @@
 //Open cache
-this.addEventListener("install", event => {
+self.addEventListener("install", event => {
   var urlsToCache = [
     "/",
     "index.html",
@@ -32,7 +32,7 @@ this.addEventListener("install", event => {
 });
 
 //Fetch client requests
-this.addEventListener("fetch", event => {
+self.addEventListener("fetch", event => {
   event.respondWith(
     caches.match(event.request).then(response => {
       if (response) return response;
